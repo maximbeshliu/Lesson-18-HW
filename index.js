@@ -24,7 +24,18 @@ let whatProduct = prompt("Please write an item");
 let quantity = prompt("Please write quantity");
 let totalPrice = document.getElementById('your-total-price');
 
-if (whatProduct === stock[0].name) {
+for (let key in stock) {
+    if (whatProduct === stock[key].name) {
+        totalPrice.innerHTML = quantity * stock[key].price;
+        break;
+    }
+    else {
+        alert("We don't have this item, Sorry!")
+        break;
+    };
+}
+
+/* if (whatProduct === stock[0].name) {
     totalPrice.innerHTML = quantity * stock[0].price;
     alert(totalPrice.innerText);
 } else if (whatProduct === stock[1].name) {
@@ -34,4 +45,4 @@ if (whatProduct === stock[0].name) {
     totalPrice.innerHTML = quantity * stock[2].price;
     alert(totalPrice.innerText);
 }
-else { alert("We don't have this item, Sorry!") };
+else { alert("We don't have this item, Sorry!") }; */
